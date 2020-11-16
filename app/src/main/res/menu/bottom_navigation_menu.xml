@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sleep_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_wall_clock"
+        android:title="@string/sleep_alarm"/>
+    <item
+        android:id="@+id/calculator_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_tips"
+        android:title="@string/tips"/>
+    <item
+        android:id="@+id/personal_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:title="@string/personal"/>
+</menu>

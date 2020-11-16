@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1FBACD</color>
+    <color name="colorPrimaryDark">#0F636E</color>
+    <color name="colorAccent">#1AC1B1</color>
+    <color name="colorBlur">#B5B4B4</color>
+    <color name="white">#fff</color>
+    <color name="textColor">#3A4D50</color>
+    <color name="defaultTextView">#808080</color>
+    <color name="orange">#F04E42</color>
+    <color name="shadowBackground">#F5F5F5</color>
+    <color name="grey">#E0E4E4</color>
+    <color name="primaryBackground">#F0F6F6</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="green">#4CAF50</color>
+</resources>

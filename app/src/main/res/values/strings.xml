@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Healthy Sleep</string>
+    <string name="sleep_alarm"><b>Đặt báo thức</b></string>
+    <string name="sleep_status">Giấc ngủ của bạn</string>
+    <string name="tips"><b>Bạn có biết</b></string>
+    <string name="personal"><b>Cá nhân</b></string>
+    <string name="stop_alarm">Hủy báo thức</string>
+    <string name="current">Bây giờ là</string>
+    <string name="sleep_time">Thời gian ngủ:</string>
+    <string name="sleep_time_format">%1$d giờ %2$d phút</string>
+    <string name="sleep_at">Đi ngủ lúc %1$s:%2$s</string>
+    <string name="wakeup_at">Thức dậy lúc %1$s:%2$s</string>
+    <string name="thoigianngu">Chọn giấc ngủ mong muốn</string>
+    <string name="instructions">Mỗi chu kỳ giấc ngủ kéo dài 90p</string>
+    <string name="set_ring">Đặt nhạc chuông</string>
+    <string name="infor">Bạn có biết</string>
+    <string name="wakeup">BÁO THỨC</string>
+    <string name="baothucreoluc">Báo thức sẽ reo lúc</string>
+    <string name="infor2">Thời gian ngủ là bội số của chu kỳ ngủ + 15p</string>
+    <string name="set_alarm_success_noti">Đặt báo thức thành công</string>
+    <string name="error">Lỗi</string>
+    <string name="cancel_alarm_success_noti">Hủy báo thức thành công</string>
+</resources>
