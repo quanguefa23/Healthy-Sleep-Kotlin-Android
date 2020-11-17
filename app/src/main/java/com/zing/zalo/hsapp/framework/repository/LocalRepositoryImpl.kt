@@ -57,7 +57,7 @@ class LocalRepositoryImpl @Inject constructor(): LocalRepository {
 
     override fun saveAlarmClockOption(opt: Int) {
         val editor = sharedPreferences.edit()
-        editor.putInt(WAKE_UP_TIME_PREFERENCES_KEY, opt)
+        editor.putInt(ALARM_CLOCK_OPT_PREFERENCES_KEY, opt)
         editor.apply()
     }
 
