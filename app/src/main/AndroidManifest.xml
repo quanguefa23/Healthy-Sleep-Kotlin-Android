@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zing.zalo.hsapp">
+
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".presentation.MyApplication"
         android:allowBackup="true"
@@ -16,12 +19,16 @@
             android:name="com.zing.zalo.hsapp.presentation.view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.zing.zalo.hsapp.framework.alarm.receiver.AlarmReceiver" />
+        <service
+            android:name=".framework.alarm.service.AlarmService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver android:name=".framework.alarm.receiver.AlarmReceiver" />
     </application>
 
 </manifest>

@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.observe
 import com.zing.zalo.hsapp.databinding.ActivityMainBinding
 import com.zing.zalo.hsapp.framework.util.AppConstants.ALARM_FRAGMENT
 import com.zing.zalo.hsapp.framework.util.AppConstants.STATUS_FRAGMENT

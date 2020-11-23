@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.zing.zalo.hsapp.R
 import java.util.*
 
-class CalculatorFragment private constructor(): Fragment() {
+class TipsFragment private constructor(): Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,10 +17,10 @@ class CalculatorFragment private constructor(): Fragment() {
         // Inflate the layout for this fragment
 
         requireActivity().title = getString(R.string.tips).toUpperCase(Locale.ROOT)
-        return inflater.inflate(R.layout.fragment_calculator, container, false)
+        return inflater.inflate(R.layout.fragment_tips, container, false)
     }
 
     companion object {
-        fun newInstance() = CalculatorFragment()
+        fun newInstance() = TipsFragment()
     }
 }

@@ -59,7 +59,7 @@
             android:layout_height="48dp"
             android:background="@drawable/button_custom"
             android:onClick="@{() -> myController.stopSleep()}"
-            android:text="@string/stop_alarm"
+            android:text="@string/cancel_alarm"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"

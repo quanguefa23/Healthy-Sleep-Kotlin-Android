@@ -4,7 +4,7 @@
     <string name="sleep_status">Giấc ngủ của bạn</string>
     <string name="tips"><b>Bạn có biết</b></string>
     <string name="personal"><b>Cá nhân</b></string>
-    <string name="stop_alarm">Hủy báo thức</string>
+    <string name="cancel_alarm">Hủy báo thức</string>
     <string name="current">Bây giờ là</string>
     <string name="sleep_time">Thời gian ngủ:</string>
     <string name="sleep_time_format">%1$d giờ %2$d phút</string>
@@ -20,4 +20,6 @@
     <string name="set_alarm_success_noti">Đặt báo thức thành công</string>
     <string name="error">Lỗi</string>
     <string name="cancel_alarm_success_noti">Hủy báo thức thành công</string>
+    <string name="stop_alarm">Tắt báo thức</string>
+    <string name="alarm">Dậy đi bạn ơi</string>
 </resources>

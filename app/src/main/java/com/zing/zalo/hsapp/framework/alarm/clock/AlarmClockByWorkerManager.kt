@@ -1,11 +1,13 @@
 package com.zing.zalo.hsapp.framework.alarm.clock
 
 import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat
 import androidx.work.*
-import com.zing.zalo.hsapp.R
+import com.zing.zalo.hsapp.framework.alarm.service.AlarmService
 import com.zing.zalo.hsapp.framework.util.AppConstants
+import com.zing.zalo.usecase.sleep.DateTimeConvert.convertDateHM
 import io.karn.notify.Notify
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 /**
@@ -18,8 +20,10 @@ class AlarmClockByWorkerManager(appContext: Context) : AlarmClock {
 
     override fun setAlarmAt(timeInMillis: Long) {
         this.timeInMillis = timeInMillis
+        val timeData: Data = workDataOf("AWAKE_TIME" to convertDateHM(timeInMillis))
         val myWorkRequest = OneTimeWorkRequestBuilder<AlarmWorker>()
             .setInitialDelay(timeInMillis - System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+            .setInputData(timeData)
             .build()
 
         workManager.enqueueUniqueWork(
@@ -37,8 +41,11 @@ class AlarmClockByWorkerManager(appContext: Context) : AlarmClock {
         Worker(appContext, workerParams) {
 
         override fun doWork(): Result {
-            Timber.d("end")
-            buildNotification(applicationContext, applicationContext.getString(R.string.wakeup), "temp")
+            val serviceIntent = Intent(applicationContext, AlarmService::class.java)
+            val timeStr = inputData.getString("AWAKE_TIME")
+            serviceIntent.putExtra("AWAKE_TIME", timeStr)
+            ContextCompat.startForegroundService(applicationContext, serviceIntent)
+
             // Indicate whether the work finished successfully with the Result
             return Result.success()
         }

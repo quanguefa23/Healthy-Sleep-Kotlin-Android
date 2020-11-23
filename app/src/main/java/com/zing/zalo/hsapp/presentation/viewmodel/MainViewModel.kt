@@ -11,7 +11,7 @@ import com.zing.zalo.hsapp.R
 import com.zing.zalo.hsapp.framework.util.AppConstants.ALARM_FRAGMENT
 import com.zing.zalo.hsapp.presentation.view.fragment.PersonalFragment
 import com.zing.zalo.hsapp.presentation.view.fragment.SleepAlarmFragment
-import com.zing.zalo.hsapp.presentation.view.fragment.CalculatorFragment
+import com.zing.zalo.hsapp.presentation.view.fragment.TipsFragment
 import com.zing.zalo.hsapp.presentation.view.fragment.SleepStatusFragment
 
 class MainViewModel @ViewModelInject constructor(val repository: Repository): ViewModel() {
@@ -35,7 +35,7 @@ class MainViewModel @ViewModelInject constructor(val repository: Repository): Vi
             else
                 SleepStatusFragment.newInstance()
         }
-        R.id.calculator_item -> CalculatorFragment.newInstance()
+        R.id.calculator_item -> TipsFragment.newInstance()
         R.id.personal_item -> PersonalFragment.newInstance()
         else -> SleepAlarmFragment.newInstance()
     }
