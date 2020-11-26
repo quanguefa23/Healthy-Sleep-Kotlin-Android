@@ -2,9 +2,9 @@
 Have a nice sleep. It's littt *^*
 
 ## Features 
-- Help you sleep at exactly time of multiple sleeep-cycles (90 * n + 14)  
+- Help you sleep at exactly time of multiple sleeep-cycles (90 * n + 15)  
 - Auto set alarm via the time you go to bed or wake up  
-- 2 mode alarms: device alarm and in-app alarm  
+- 2 alarm modes: device alarm and in-app alarm  
 - Choose a sweet ringtone in collection  
 - Read some tips about sleeping  
 - Log your sleep data and show you when you want  
