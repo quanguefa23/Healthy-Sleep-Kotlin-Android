@@ -1,11 +1,14 @@
 package com.zing.zalo.hsapp.presentation.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.zing.zalo.hsapp.R
 import com.zing.zalo.hsapp.databinding.FragmentPersonalBinding
+import com.zing.zalo.hsapp.presentation.view.activity.SelectRingtoneActivity
 import com.zing.zalo.hsapp.presentation.viewmodel.PersonalViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +41,12 @@ class PersonalFragment private constructor(): BaseFragment() {
 //        Log.d("QUANG", "destroy personal")
 //    }
 
-    override fun setUpBinding(inflater: LayoutInflater, container: ViewGroup?) {
+    fun startSelectRingToneActivity() {
+        startActivity(Intent(context, SelectRingtoneActivity::class.java))
+        requireActivity().overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
+    }
+
+    override fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentPersonalBinding.inflate(inflater, container, false)
         binding.myController = this
         binding.myViewModel = viewModel

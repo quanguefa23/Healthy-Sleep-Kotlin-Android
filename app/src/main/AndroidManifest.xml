@@ -8,17 +8,23 @@
     <application
         android:name=".presentation.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/img_sleeping"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/img_sleeping"
+        android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
+            android:name=".presentation.view.activity.SelectRingtoneActivity"
+            android:theme="@style/NoActionBarTheme" />
+
+        <activity
+            android:name=".presentation.view.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MainTheme"
-            android:name="com.zing.zalo.hsapp.presentation.view.activity.MainActivity">
+            android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

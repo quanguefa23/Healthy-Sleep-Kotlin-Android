@@ -3,10 +3,16 @@ package com.zing.zalo.hsapp.framework.alarm.clock
 import android.content.Context
 
 /**
+ * const val for app Alarm
+ */
+const val AWAKE_TIME_KEY = "AWAKE_TIME"
+const val MEDIA_OPTION_KEY = "MEDIA_OPTION"
+
+/**
  * Interface for AlarmClock (to set alarm)
  */
 interface AlarmClock {
-    fun setAlarmAt(timeInMillis: Long)
+    fun setAlarmAt(timeInMillis: Long, mediaOpt: Int)
     fun cancelAlarm()
 }
 

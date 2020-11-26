@@ -52,26 +52,61 @@
             android:id="@+id/tv7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:text="Đang sử dụng đồng hồ báo thức mặc định của thiết bị"
             android:textColor="@color/defaultTextView"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/tv3"
-            app:layout_constraintStart_toStartOf="@+id/view2"
-            app:layout_constraintTop_toBottomOf="@+id/tv3" />
+            app:layout_constraintStart_toStartOf="@+id/tv3"
+            app:layout_constraintTop_toBottomOf="@+id/tv3"/>
 
         <TextView
-            android:visibility="@{!myViewModel.isDeviceClockOpt ? View.VISIBLE : View.GONE}"
             android:id="@+id/tv8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:text="Đang sử dụng đồng hồ báo thức của ứng dụng"
             android:textColor="@color/defaultTextView"
             android:textSize="14sp"
+            android:visibility="@{!myViewModel.isDeviceClockOpt ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="@+id/tv3"
-            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/tv3"
             app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+        <View
+            android:id="@+id/layout_select_tone"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:onClick="@{() -> myController.startSelectRingToneActivity()}"
+            android:visibility="@{!myViewModel.isDeviceClockOpt ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Chọn nhạc chuông"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="@{!myViewModel.isDeviceClockOpt ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_select_tone"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/layout_select_tone" />
+
+        <TextView
+            android:id="@+id/tv9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{myViewModel.mediaName}"
+            android:textColor="@color/defaultTextView"
+            android:textSize="14sp"
+            android:visibility="@{!myViewModel.isDeviceClockOpt ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/switchButton"
+            app:layout_constraintTop_toTopOf="@+id/tv" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:checked="@{myViewModel.isDeviceClockOpt}"

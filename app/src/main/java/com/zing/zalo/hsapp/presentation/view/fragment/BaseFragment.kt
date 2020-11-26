@@ -14,8 +14,8 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setUpBinding(inflater, container)
+        setupBinding(inflater, container)
         return null
     }
-    protected abstract fun setUpBinding(inflater: LayoutInflater, container: ViewGroup?)
+    protected abstract fun setupBinding(inflater: LayoutInflater, container: ViewGroup?)
 }

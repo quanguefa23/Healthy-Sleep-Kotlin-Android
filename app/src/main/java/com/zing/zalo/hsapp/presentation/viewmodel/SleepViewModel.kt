@@ -11,6 +11,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.zing.zalo.data.repository.Repository
 import com.zing.zalo.hsapp.R
+import com.zing.zalo.hsapp.framework.alarm.clock.AlarmClockFactory
 import com.zing.zalo.hsapp.framework.util.AppConstants.APP_NAME
 import com.zing.zalo.hsapp.framework.util.executor.TaskExecutorRepeater
 import com.zing.zalo.hsapp.framework.util.executor.TaskExecutorRepeaterFactory
@@ -167,5 +168,10 @@ class SleepViewModel @ViewModelInject constructor(val repository: Repository): V
             putExtra(AlarmClock.EXTRA_HOUR, time.first)
             putExtra(AlarmClock.EXTRA_MINUTES, time.second)
         }
+    }
+
+    fun createAppAlarm(time: Long) {
+        AlarmClockFactory.getAlarmClock(MyApplication.getInstance())
+            .setAlarmAt(time, repository.getMediaOption())
     }
 }

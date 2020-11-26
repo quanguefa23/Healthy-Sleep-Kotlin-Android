@@ -50,7 +50,6 @@ class LocalRepositoryImpl @Inject constructor(): LocalRepository {
             putLong(WAKE_UP_TIME_PREFERENCES_KEY, wakeupTime)
             apply()
         }
-
     }
     override fun getWakeUpTime() =
         sharedPreferences.getLong(WAKE_UP_TIME_PREFERENCES_KEY, 0L)
@@ -71,5 +70,5 @@ class LocalRepositoryImpl @Inject constructor(): LocalRepository {
         }
     }
     override fun getMediaOption() =
-        sharedPreferences.getInt(MEDIA_OPT_PREFERENCES_KEY, 0)
+        sharedPreferences.getInt(MEDIA_OPT_PREFERENCES_KEY, 1)
 }

@@ -40,7 +40,7 @@ class SleepStatusFragment private constructor(): BaseFragment() {
 //        Log.d("QUANG", "destroy sleep status")
 //    }
 
-    override fun setUpBinding(inflater: LayoutInflater, container: ViewGroup?) {
+    override fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentSleepStatusBinding.inflate(inflater, container, false)
         binding.myController = this
         binding.myViewModel = viewModel

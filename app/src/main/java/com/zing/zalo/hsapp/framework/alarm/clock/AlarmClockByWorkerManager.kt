@@ -18,9 +18,12 @@ class AlarmClockByWorkerManager(appContext: Context) : AlarmClock {
     private val workManager = WorkManager.getInstance(appContext)
     private var timeInMillis: Long = 0
 
-    override fun setAlarmAt(timeInMillis: Long) {
+    override fun setAlarmAt(timeInMillis: Long, mediaOpt: Int) {
         this.timeInMillis = timeInMillis
-        val timeData: Data = workDataOf("AWAKE_TIME" to convertDateHM(timeInMillis))
+        val timeData: Data = workDataOf(
+            AWAKE_TIME_KEY to convertDateHM(timeInMillis),
+            MEDIA_OPTION_KEY to mediaOpt
+        )
         val myWorkRequest = OneTimeWorkRequestBuilder<AlarmWorker>()
             .setInitialDelay(timeInMillis - System.currentTimeMillis(), TimeUnit.MILLISECONDS)
             .setInputData(timeData)
@@ -42,8 +45,11 @@ class AlarmClockByWorkerManager(appContext: Context) : AlarmClock {
 
         override fun doWork(): Result {
             val serviceIntent = Intent(applicationContext, AlarmService::class.java)
-            val timeStr = inputData.getString("AWAKE_TIME")
-            serviceIntent.putExtra("AWAKE_TIME", timeStr)
+            val timeStr = inputData.getString(AWAKE_TIME_KEY)
+            val mediaOpt = inputData.getInt(MEDIA_OPTION_KEY, 0)
+            serviceIntent.putExtra(AWAKE_TIME_KEY, timeStr)
+            serviceIntent.putExtra(MEDIA_OPTION_KEY, mediaOpt)
+
             ContextCompat.startForegroundService(applicationContext, serviceIntent)
 
             // Indicate whether the work finished successfully with the Result

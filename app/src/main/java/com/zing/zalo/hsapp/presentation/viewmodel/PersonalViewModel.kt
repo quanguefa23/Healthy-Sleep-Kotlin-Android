@@ -8,6 +8,7 @@ import com.zing.zalo.data.DataConstants.APP_CLOCK_OPTION
 import com.zing.zalo.data.DataConstants.DEVICE_CLOCK_OPTION
 import com.zing.zalo.data.repository.Repository
 import com.zing.zalo.hsapp.R
+import com.zing.zalo.hsapp.framework.alarm.MediaFactory
 import com.zing.zalo.hsapp.framework.util.AppConstants.ALARM_FRAGMENT
 import com.zing.zalo.hsapp.presentation.MyApplication
 import java.util.*
@@ -19,6 +20,9 @@ class PersonalViewModel @ViewModelInject constructor(val repository: Repository)
 
     private val _isAlarmFragmentEnable = MutableLiveData(repository.getTypeOfFirstFragment() == ALARM_FRAGMENT)
     val isAlarmFragmentEnable: LiveData<Boolean> = this._isAlarmFragmentEnable
+
+    private val _mediaName = MutableLiveData(MediaFactory.getMediaNameById(repository.getMediaOption()))
+    val mediaName: LiveData<String> = this._mediaName
 
     fun getTitle() =
         MyApplication.getInstance().getString(R.string.personal).toUpperCase(Locale.ROOT)

@@ -13,6 +13,8 @@ import android.os.Looper
 import androidx.core.app.NotificationCompat
 import com.zing.zalo.hsapp.R
 import com.zing.zalo.hsapp.framework.alarm.MediaFactory
+import com.zing.zalo.hsapp.framework.alarm.clock.AWAKE_TIME_KEY
+import com.zing.zalo.hsapp.framework.alarm.clock.MEDIA_OPTION_KEY
 import com.zing.zalo.hsapp.framework.alarm.receiver.AlarmReceiver
 import com.zing.zalo.hsapp.presentation.view.activity.MainActivity
 import timber.log.Timber
@@ -61,7 +63,8 @@ class AlarmService : Service() {
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         // start ring tone
-        mediaPlayer = MediaFactory.createLoopingRingTone(this)
+        val mediaOpt = intent.getIntExtra(MEDIA_OPTION_KEY, 0)
+        mediaPlayer = MediaFactory.createLoopingRingTone(this, mediaOpt)
         mediaPlayer?.start()
 
         // Create an explicit intent for tap action
@@ -80,7 +83,7 @@ class AlarmService : Service() {
         )
 
         // Create notification
-        val timeStr: String = intent.getStringExtra("AWAKE_TIME") ?: "time null"
+        val timeStr: String = intent.getStringExtra(AWAKE_TIME_KEY) ?: "time null"
         val builder = createBuilder(contentPendingIntent, timeStr)
         // Add action to builder
         builder.addAction(R.drawable.ic_app_icon, getString(R.string.stop_alarm), cancelPendingIntent)

@@ -12,8 +12,6 @@ import com.zing.zalo.data.DataConstants.DEVICE_CLOCK_OPTION
 import com.zing.zalo.hsapp.R
 import com.zing.zalo.hsapp.databinding.DialogTimePickerBinding
 import com.zing.zalo.hsapp.databinding.FragmentSleepAlarmBinding
-import com.zing.zalo.hsapp.framework.alarm.clock.AlarmClockFactory
-import com.zing.zalo.hsapp.presentation.MyApplication
 import com.zing.zalo.hsapp.presentation.view.activity.MainActivity
 import com.zing.zalo.hsapp.presentation.viewmodel.SleepViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,7 +43,7 @@ class SleepAlarmFragment private constructor(): BaseFragment() {
         return binding.root
     }
 
-    override fun setUpBinding(inflater: LayoutInflater, container: ViewGroup?) {
+    override fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentSleepAlarmBinding.inflate(inflater, container, false)
         binding.myController = this
         binding.myViewModel = viewModel
@@ -113,7 +111,7 @@ class SleepAlarmFragment private constructor(): BaseFragment() {
                 Toast.makeText(requireContext(), getString(R.string.set_alarm_success_noti), Toast.LENGTH_SHORT).show()
             }
             APP_CLOCK_OPTION -> {
-                AlarmClockFactory.getAlarmClock(MyApplication.getInstance()).setAlarmAt(time)
+                viewModel.createAppAlarm(time)
                 Toast.makeText(requireContext(), getString(R.string.set_alarm_success_noti), Toast.LENGTH_SHORT).show()
             }
             else ->
