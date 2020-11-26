@@ -19,6 +19,7 @@ class LocalRepositoryImpl @Inject constructor(): LocalRepository {
         private const val FIRST_FRAGMENT_TYPE_PREFERENCES_KEY = "FirstFragmentType"
         private const val WAKE_UP_TIME_PREFERENCES_KEY = "WakeUpTimeType"
         private const val ALARM_CLOCK_OPT_PREFERENCES_KEY = "AlarmClockOption"
+        private const val MEDIA_OPT_PREFERENCES_KEY = "MediaOption"
         private const val PREFERENCES_STATE_NAME = "AppDataState"
     }
 
@@ -26,42 +27,49 @@ class LocalRepositoryImpl @Inject constructor(): LocalRepository {
         .getSharedPreferences(PREFERENCES_STATE_NAME, Context.MODE_PRIVATE)
 
     override fun saveSleepTimeOption(pos: Int) {
-        val editor = sharedPreferences.edit()
-        editor.putInt(SLEEP_TIME_OPTION_PREFERENCES_KEY, pos)
-        editor.apply()
+        sharedPreferences.edit().apply {
+            putInt(SLEEP_TIME_OPTION_PREFERENCES_KEY, pos)
+            apply()
+        }
     }
+    override fun getSleepTimeOption() =
+        sharedPreferences.getInt(SLEEP_TIME_OPTION_PREFERENCES_KEY, 0)
 
-    override fun getSleepTimeOption(): Int {
-        return sharedPreferences.getInt(SLEEP_TIME_OPTION_PREFERENCES_KEY, 0)
-    }
 
     override fun saveTypeOfFirstFragment(type: Int) {
-        val editor = sharedPreferences.edit()
-        editor.putInt(FIRST_FRAGMENT_TYPE_PREFERENCES_KEY, type)
-        editor.apply()
+        sharedPreferences.edit().apply {
+            putInt(FIRST_FRAGMENT_TYPE_PREFERENCES_KEY, type)
+            apply()
+        }
     }
-
-    override fun getTypeOfFirstFragment(): Int {
-        return sharedPreferences.getInt(FIRST_FRAGMENT_TYPE_PREFERENCES_KEY, ALARM_FRAGMENT)
-    }
+    override fun getTypeOfFirstFragment() =
+        sharedPreferences.getInt(FIRST_FRAGMENT_TYPE_PREFERENCES_KEY, ALARM_FRAGMENT)
 
     override fun saveWakeUpTime(wakeupTime: Long) {
-        val editor = sharedPreferences.edit()
-        editor.putLong(WAKE_UP_TIME_PREFERENCES_KEY, wakeupTime)
-        editor.apply()
-    }
+        sharedPreferences.edit().apply {
+            putLong(WAKE_UP_TIME_PREFERENCES_KEY, wakeupTime)
+            apply()
+        }
 
-    override fun getWakeUpTime(): Long {
-        return sharedPreferences.getLong(WAKE_UP_TIME_PREFERENCES_KEY, 0L)
     }
+    override fun getWakeUpTime() =
+        sharedPreferences.getLong(WAKE_UP_TIME_PREFERENCES_KEY, 0L)
 
     override fun saveAlarmClockOption(opt: Int) {
-        val editor = sharedPreferences.edit()
-        editor.putInt(ALARM_CLOCK_OPT_PREFERENCES_KEY, opt)
-        editor.apply()
+        sharedPreferences.edit().apply {
+            putInt(ALARM_CLOCK_OPT_PREFERENCES_KEY, opt)
+            apply()
+        }
     }
+    override fun getAlarmClockOption() =
+        sharedPreferences.getInt(ALARM_CLOCK_OPT_PREFERENCES_KEY, APP_CLOCK_OPTION)
 
-    override fun getAlarmClockOption(): Int {
-        return sharedPreferences.getInt(ALARM_CLOCK_OPT_PREFERENCES_KEY, APP_CLOCK_OPTION)
+    override fun saveMediaOption(opt: Int) {
+        sharedPreferences.edit().apply {
+            putInt(MEDIA_OPT_PREFERENCES_KEY, opt)
+            apply()
+        }
     }
+    override fun getMediaOption() =
+        sharedPreferences.getInt(MEDIA_OPT_PREFERENCES_KEY, 0)
 }

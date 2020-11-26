@@ -18,4 +18,7 @@ interface InMemoryRepository {
 
     fun saveAlarmClockOption(opt: Int)
     fun getAlarmClockOption(): Int?
+
+    fun saveMediaOption(opt: Int)
+    fun getMediaOption(): Int?
 }

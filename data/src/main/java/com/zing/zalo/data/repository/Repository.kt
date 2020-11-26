@@ -44,4 +44,14 @@ class Repository(private val localRepository: LocalRepository,
         inMemoryRepository.getAlarmClockOption() ?: localRepository.getAlarmClockOption().also {
             inMemoryRepository.saveAlarmClockOption(it)
         }
+
+    fun saveMediaOption(opt: Int) {
+        inMemoryRepository.saveMediaOption(opt)
+        localRepository.saveMediaOption(opt)
+    }
+    fun getMediaOption(): Int =
+        inMemoryRepository.getMediaOption() ?: localRepository.getMediaOption().also {
+            inMemoryRepository.saveMediaOption(it)
+        }
+
 }

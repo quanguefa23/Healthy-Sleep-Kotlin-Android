@@ -17,6 +17,7 @@ class InMemoryRepositoryImpl @Inject constructor(): InMemoryRepository {
     private var _typeOfFirstFragment: Int? = null
     private var _wakeupTime: Long? = null
     private var _alarmClockOpt: Int? = null
+    private var _mediaOption: Int? = null
 
     override fun getSleepTimeStringByCycles(option: Int): String {
         if (!::_sleepTimeMap.isInitialized) {
@@ -30,23 +31,18 @@ class InMemoryRepositoryImpl @Inject constructor(): InMemoryRepository {
         return _sleepTimeMap[option] ?: ""
     }
 
-    override fun saveSleepTimeOption(pos: Int) {
-        _sleepTimeOption = pos
-    }
+    override fun saveSleepTimeOption(pos: Int) { _sleepTimeOption = pos }
     override fun getSleepTimeOption(): Int? = _sleepTimeOption
 
-    override fun saveTypeOfFirstFragment(type: Int) {
-        _typeOfFirstFragment = type
-    }
+    override fun saveTypeOfFirstFragment(type: Int) { _typeOfFirstFragment = type }
     override fun getTypeOfFirstFragment(): Int? = _typeOfFirstFragment
 
-    override fun saveWakeUpTime(wakeupTime: Long) {
-        _wakeupTime = wakeupTime
-    }
+    override fun saveWakeUpTime(wakeupTime: Long) { _wakeupTime = wakeupTime }
     override fun getWakeUpTime(): Long? = _wakeupTime
 
-    override fun saveAlarmClockOption(opt: Int) {
-        _alarmClockOpt = opt
-    }
+    override fun saveAlarmClockOption(opt: Int) { _alarmClockOpt = opt }
     override fun getAlarmClockOption(): Int? = _alarmClockOpt
+
+    override fun saveMediaOption(opt: Int) { _mediaOption = opt }
+    override fun getMediaOption(): Int? = _mediaOption
 }
