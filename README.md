@@ -1,5 +1,5 @@
 # Healthy-Sleep-Kotlin-Android
-Have a nice sleep. It's littt *^*
+Have a nice sleep. It's littt **^**
 
 ## Features 
 - Help you sleep at exactly time of multiple sleeep-cycles (90 * n + 15)  
