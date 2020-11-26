@@ -36,6 +36,10 @@ class PersonalFragment private constructor(): BaseFragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateValueMediaName()
+    }
 //    override fun onDestroy() {
 //        super.onDestroy()
 //        Log.d("QUANG", "destroy personal")

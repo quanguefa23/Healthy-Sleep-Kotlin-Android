@@ -21,7 +21,7 @@ class PersonalViewModel @ViewModelInject constructor(val repository: Repository)
     private val _isAlarmFragmentEnable = MutableLiveData(repository.getTypeOfFirstFragment() == ALARM_FRAGMENT)
     val isAlarmFragmentEnable: LiveData<Boolean> = this._isAlarmFragmentEnable
 
-    private val _mediaName = MutableLiveData(MediaFactory.getMediaNameById(repository.getMediaOption()))
+    private val _mediaName = MutableLiveData<String>()
     val mediaName: LiveData<String> = this._mediaName
 
     fun getTitle() =
@@ -30,6 +30,10 @@ class PersonalViewModel @ViewModelInject constructor(val repository: Repository)
     fun saveOption(checked: Boolean) {
         _isDeviceClockOpt.value = checked
         repository.saveAlarmClockOption(if (checked) DEVICE_CLOCK_OPTION else APP_CLOCK_OPTION)
+    }
+
+    fun updateValueMediaName() {
+        _mediaName.value = MediaFactory.getMediaNameById(repository.getMediaOption())
     }
 
 }

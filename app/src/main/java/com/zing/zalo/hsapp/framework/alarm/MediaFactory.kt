@@ -7,7 +7,7 @@ import com.zing.zalo.hsapp.R
 
 object MediaFactory {
 
-    private val listMedia = listOf(
+    val listMedia = listOf(
             MediaSong(0, "Among Us Ringtone", R.raw.among_us_ringtone),
             MediaSong(1, "Baby Shark Trap", R.raw.baby_shark_trap),
             MediaSong(2, "Christmas Trap", R.raw.christmas_trap),
@@ -24,4 +24,7 @@ object MediaFactory {
 
     fun createLoopingRingTone(context: Context, id: Int): MediaPlayer =
         MediaPlayer.create(context, getMediaResourceById(id)).apply { isLooping = true }
+
+    fun createOneTimeRingTone(context: Context, id: Int): MediaPlayer =
+        MediaPlayer.create(context, getMediaResourceById(id)).apply { isLooping = false }
 }
