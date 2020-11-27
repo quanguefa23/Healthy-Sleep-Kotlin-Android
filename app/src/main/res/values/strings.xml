@@ -26,4 +26,5 @@
     <string name="title_4_giai_doan">Các giai đoạn của một giấc ngủ</string>
     <string name="thoi_gian_ngu">Thời gian ngủ tốt nhất cho sức khỏe là bao nhiêu giờ?</string>
     <string name="giac_ngu_bao_gom">Giấc ngủ bao gồm nhiều chu kỳ, mỗi chu kỳ kéo dài 90 phút. Trong thời gian đó chúng ta trải qua 5 giai đoạn. Sẽ mất trung bình 14 phút để bắt đầu rơi vào giai đoạn 1 - mơ màng và chuyển dần đến giai đoạn 5 là khi ta mơ nhiều nhất.</string>
+    <string name="chamvaobaiviet">Chạm vào thẻ để đọc bài viết chi tiết</string>
 </resources>

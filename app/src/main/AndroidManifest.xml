@@ -4,6 +4,7 @@
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".presentation.MyApplication"
@@ -13,11 +14,12 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".presentation.view.activity.WebViewActivity"
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".presentation.view.activity.SelectRingtoneActivity"
             android:theme="@style/NoActionBarTheme" />
-
         <activity
             android:name=".presentation.view.activity.MainActivity"
             android:screenOrientation="portrait"

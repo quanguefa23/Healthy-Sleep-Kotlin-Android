@@ -46,7 +46,7 @@ class PersonalFragment private constructor(): BaseFragment() {
 //    }
 
     fun startSelectRingToneActivity() {
-        startActivity(Intent(context, SelectRingtoneActivity::class.java))
+        startActivity(Intent(requireContext(), SelectRingtoneActivity::class.java))
         requireActivity().overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
     }
 
