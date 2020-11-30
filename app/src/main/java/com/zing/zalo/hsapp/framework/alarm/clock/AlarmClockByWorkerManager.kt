@@ -55,16 +55,6 @@ class AlarmClockByWorkerManager(appContext: Context) : AlarmClock {
             // Indicate whether the work finished successfully with the Result
             return Result.success()
         }
-
-        private fun buildNotification(context: Context, title: String, message: String) {
-            Notify
-                .with(context)
-                .content {
-                    this.title = title
-                    text = "$message rồi, dậy đi bạn ơi!!!"
-                }
-                .show()
-        }
     }
 
 

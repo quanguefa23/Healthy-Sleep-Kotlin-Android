@@ -46,7 +46,6 @@ class TipsFragment private constructor(): Fragment() {
         else {
             Toast.makeText(requireContext(), "Không có kết nối mạng", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     companion object {
